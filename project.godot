@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Fish Burgers"
+run/main_scene="uid://2jj42ff71xfs"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
