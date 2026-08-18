@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bvcx7syphl5x5"]
 
-[ext_resource type="Script" uid="uid://c7xk2vt5tkg7b" path="res://character_body_3d.gd" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://fxucam5erndx" path="res://button.gd" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://hgn5wgn61c2v" path="res://CSharpBoxTest.cs" id="2_1bvp3"]
-[ext_resource type="Script" uid="uid://bq6nx463d3we3" path="res://RainbowBox3D.cs" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://c7xk2vt5tkg7b" path="res://Main/character_body_3d.gd" id="1_eunhr"]
+[ext_resource type="Script" uid="uid://hgn5wgn61c2v" path="res://Main/C# Test/CSharpBoxTest.cs" id="2_k3v36"]
+[ext_resource type="Script" uid="uid://bq6nx463d3we3" path="res://Main/C# Test/RainbowBox3D.cs" id="3_liyct"]
+[ext_resource type="Script" uid="uid://fxucam5erndx" path="res://Main/button.gd" id="4_ib3t1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -63,7 +63,7 @@ shadow_enabled = true
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=2091393601]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3823376, 0)
-script = ExtResource("1_ig7tw")
+script = ExtResource("1_eunhr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1983254668]
 shape = SubResource("CapsuleShape3D_fa6ko")
@@ -114,12 +114,12 @@ shape = SubResource("ConcavePolygonShape3D_0xm2m")
 
 [node name="C#" type="StaticBody3D" parent="." unique_id=85464324]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.711466, 1.5373912, 2.6189795)
-script = ExtResource("2_1bvp3")
+script = ExtResource("2_k3v36")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="C#" unique_id=1812293590]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5610585, 0)
 mesh = SubResource("BoxMesh_0dn5q")
-script = ExtResource("2_h2yge")
+script = ExtResource("3_liyct")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="C#" unique_id=762030008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5610585, 0)
@@ -127,7 +127,7 @@ shape = SubResource("ConcavePolygonShape3D_1bvp3")
 
 [node name="Button" type="StaticBody3D" parent="." unique_id=565334684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.750977, 1.9409266, -1.9158039)
-script = ExtResource("2_0xm2m")
+script = ExtResource("4_ib3t1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Button" unique_id=903334464]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
