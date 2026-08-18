@@ -23,8 +23,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		if interaction_ray.is_colliding():
 			var hit_object = interaction_ray.get_collider()
 			print("Raycast hit this node: ", hit_object)
-			if hit_object.has_method("interact"):
-				hit_object.interact()
+			if hit_object.has_method.call("Interact"):
+				hit_object.Interact()
 			else:
 				print("The node we hit does NOT have an interact method")
 
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	
-	if interaction_ray.is_colliding() and interaction_ray.get_collider().has_method("interact"):
+	if interaction_ray.is_colliding() and interaction_ray.get_collider().has_method.call("Interact"):
 		crosshair.text = "◯"
 		crosshair.add_theme_color_override("font_color", Color.WHITE)
 	else:

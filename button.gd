@@ -1,4 +1,4 @@
 extends StaticBody3D
 
-func interact() -> void:
+func Interact() -> void:
 	print("you clicked me!")
