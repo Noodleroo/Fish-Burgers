@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://hgn5wgn61c2v" path="res://Main/C# Test/CSharpBoxTest.cs" id="2_k3v36"]
 [ext_resource type="Script" uid="uid://bq6nx463d3we3" path="res://Main/C# Test/RainbowBox3D.cs" id="3_liyct"]
 [ext_resource type="Script" uid="uid://v87pvfj78r2h" path="res://Main/Button.cs" id="4_eunhr"]
+[ext_resource type="Script" uid="uid://d22hb2yrx3yvf" path="res://Main/WaterBox.cs" id="5_liyct"]
+[ext_resource type="Shader" uid="uid://b374p4d6n51bc" path="res://Main/Water.gdshader" id="6_ib3t1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -51,6 +53,19 @@ data = PackedVector3Array(-0.5, 2.5, 2.5, 0.5, 2.5, 2.5, -0.5, -2.5, 2.5, 0.5, 2
 height = 0.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lquwl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_liyct"]
+render_priority = 0
+shader = ExtResource("6_ib3t1")
+shader_parameter/water_color = Color(0, 0.4, 0.8, 1)
+shader_parameter/roughness = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_su2ui"]
+material = SubResource("ShaderMaterial_liyct")
+size = Vector3(10, 10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eunhr"]
+size = Vector3(10, 10, 10)
 
 [node name="Node3D" type="Node3D" unique_id=1776148469]
 
@@ -136,3 +151,16 @@ mesh = SubResource("SphereMesh_2cr7j")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button" unique_id=1885778057]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_lquwl")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1393431665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9617558, 4.8415413, -11.726835)
+gravity_space_override = 3
+gravity = 2.0
+script = ExtResource("5_liyct")
+BoxSize = Vector3(2, 2, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=1052640625]
+mesh = SubResource("BoxMesh_su2ui")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1474754510]
+shape = SubResource("BoxShape3D_eunhr")
